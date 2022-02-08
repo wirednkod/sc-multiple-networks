@@ -3,14 +3,15 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import "regenerator-runtime/runtime"
 
-import { Detector } from '@substrate/connect';
+import { ScProvider, SupportedChains } from '@substrate/connect'
+import { ApiPromise } from "@polkadot/api"
 
 window.onload = () => {
   void (async () => {
     try {
       const westend = async () => {
-        const app = new Detector('Multiple Network Demo');
-        const westend = await app.connect('westend');
+        const westendProvider = new ScProvider(SupportedChains.westend);
+        const westend = await ApiPromise.create({ provider: westendProvider });
         const westendUI = document.getElementById("westend")
         const westendHead = await westend.rpc.chain.getHeader()
         if (westendUI) {
@@ -22,8 +23,8 @@ window.onload = () => {
       }
 
       const kusama = async () => {
-        const app = new Detector('Multiple Network Demo');
-        const kusama = await app.connect('kusama');
+        const kusamaProvider = new ScProvider(SupportedChains.kusama);
+        const kusama = await ApiPromise.create({ provider: kusamaProvider });
         const kusamaUI = document.getElementById("kusama")
         const kusamaHead = await kusama.rpc.chain.getHeader()
         if (kusamaUI) {
@@ -35,8 +36,8 @@ window.onload = () => {
       }
 
       const polkadot = async () => {
-        const app = new Detector('Multiple Network Demo');
-        const polkadot = await app.connect('polkadot');
+        const polkadotProvider = new ScProvider(SupportedChains.polkadot);
+        const polkadot = await ApiPromise.create({ provider: polkadotProvider });
         const polkadotUI = document.getElementById("polkadot")
         const polkadotHead = await polkadot.rpc.chain.getHeader()
         if (polkadotUI) {
@@ -48,8 +49,8 @@ window.onload = () => {
       }
 
       const rococo = async () => {
-        const app = new Detector('Multiple Network Demo');
-        const rococo = await app.connect('rococo');
+        const rococoProvider = new ScProvider(SupportedChains.rococo);
+        const rococo = await ApiPromise.create({ provider: rococoProvider });
         const rococoUI = document.getElementById("rococo")
         const rococoHead = await rococo.rpc.chain.getHeader()
         if (rococoUI) {
