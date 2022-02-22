@@ -45,9 +45,6 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "./index.html",
     }),
-    new webpack.ProvidePlugin({
-      Buffer: ["buffer", "Buffer"],
-    }),
     new webpack.HotModuleReplacementPlugin(),
   ],
 }

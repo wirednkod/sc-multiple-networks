@@ -3,14 +3,15 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import "regenerator-runtime/runtime"
 
-import { ScProvider, SupportedChains } from '@substrate/connect'
+import { createScClient, WellKnownChains } from "@substrate/connect"
 import { ApiPromise } from "@polkadot/api"
 
 window.onload = () => {
   void (async () => {
     try {
+      const scClient = createScClient()
       const westend = async () => {
-        const westendProvider = new ScProvider(SupportedChains.westend);
+        const westendProvider = await scClient.addWellKnownChain(WellKnownChains.westend2);
         const westend = await ApiPromise.create({ provider: westendProvider });
         const westendUI = document.getElementById("westend")
         const westendHead = await westend.rpc.chain.getHeader()
@@ -23,7 +24,7 @@ window.onload = () => {
       }
 
       const kusama = async () => {
-        const kusamaProvider = new ScProvider(SupportedChains.kusama);
+        const kusamaProvider = await scClient.addWellKnownChain(WellKnownChains.ksmcc3);
         const kusama = await ApiPromise.create({ provider: kusamaProvider });
         const kusamaUI = document.getElementById("kusama")
         const kusamaHead = await kusama.rpc.chain.getHeader()
@@ -36,7 +37,7 @@ window.onload = () => {
       }
 
       const polkadot = async () => {
-        const polkadotProvider = new ScProvider(SupportedChains.polkadot);
+        const polkadotProvider = await scClient.addWellKnownChain(WellKnownChains.polkadot);
         const polkadot = await ApiPromise.create({ provider: polkadotProvider });
         const polkadotUI = document.getElementById("polkadot")
         const polkadotHead = await polkadot.rpc.chain.getHeader()
@@ -49,7 +50,7 @@ window.onload = () => {
       }
 
       const rococo = async () => {
-        const rococoProvider = new ScProvider(SupportedChains.rococo);
+        const rococoProvider = await scClient.addWellKnownChain(WellKnownChains.rococo_v2);
         const rococo = await ApiPromise.create({ provider: rococoProvider });
         const rococoUI = document.getElementById("rococo")
         const rococoHead = await rococo.rpc.chain.getHeader()
