@@ -3,13 +3,13 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import "regenerator-runtime/runtime"
 
-import { createScClient, WellKnownChains } from "@substrate/connect"
+import { createPolkadotJsScClient, WellKnownChains } from "@substrate/connect"
 import { ApiPromise } from "@polkadot/api"
 
 window.onload = () => {
   void (async () => {
     try {
-      const scClient = createScClient()
+      const scClient = createPolkadotJsScClient()
       const westend = async () => {
         const westendProvider = await scClient.addWellKnownChain(WellKnownChains.westend2);
         const westend = await ApiPromise.create({ provider: westendProvider });
