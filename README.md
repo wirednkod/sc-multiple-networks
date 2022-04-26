@@ -2,6 +2,8 @@
 
 This is a Substrate Connect Multiple Networks demo that connects through SmoldotProvider or Extension Provider (more info [here](https://github.com/paritytech/substrate-connect) or [here](https://paritytech.github.io/substrate-connect/)) to multiple chains (`Westend`, `Polkadot`, `Kusama`, `Rococo`), retrieves (and shows) the latest header from each chain.
 
+### Demo: https://wirednkod.github.io/sc-multiple-networks/
+
 ## Getting Started
 
 1. Clone the whole repository.
