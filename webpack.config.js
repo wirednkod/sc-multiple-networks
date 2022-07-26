@@ -32,21 +32,16 @@ module.exports = {
     ],
   },
   resolve: {
-    alias: {
-      "react/jsx-runtime": require.resolve("react/jsx-runtime"),
-    },
     extensions: ["*", ".js", ".jsx", ".ts", ".tsx"],
     fallback: {
       crypto: require.resolve("crypto-browserify"),
       stream: require.resolve("stream-browserify"),
+      buffer: require.resolve("buffer")
     },
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: "./index.html",
-    }),
-    new webpack.ProvidePlugin({
-      Buffer: ["buffer", "Buffer"],
     }),
     new webpack.HotModuleReplacementPlugin(),
   ],
