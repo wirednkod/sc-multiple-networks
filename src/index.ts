@@ -14,7 +14,7 @@ window.onload = () => {
     try {
       const westend = async () => {
         const westendProvider = new ScProvider(WellKnownChain.westend2);
-        await westendProvider.connect()
+        await westendProvider.connect({ embeddedNodeConfig: { maxLogLevel: 4 } })
         const westend = await ApiPromise.create({ provider: westendProvider });
         const westendUI = document.getElementById("westend")
         const westendHead = await westend.rpc.chain.getHeader()
