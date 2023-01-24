@@ -1,10 +1,9 @@
 {
-  "name": "@substrate/multiple-network-demo",
+  "name": "@substrate/smoldot-browser-demo",
   "version": "1.0.0",
-  "homepage": "https://wirednkod.github.io/sc-multiple-networks/",
   "author": "Parity Team <admin@parity.io>",
+  "homepage": "https://wirednkod.github.io/sc-simple-demo/",
   "contributors": [
-    "Raoul Millais <raoul@parity.io>",
     "Nikolaos Kontakis <nikolaos@parity.io>"
   ],
   "license": "Apache-2.0",
@@ -42,7 +41,8 @@
     "webpack-dev-server": "^4.11.1"
   },
   "dependencies": {
-    "@polkadot/api": "^9.7.1",
-    "@polkadot/rpc-provider": "^9.7.1"
+    "@polkadot/api": "^9.12.1",
+    "@polkadot/rpc-provider": "^9.12.1",
+    "@substrate/connect": "^0.7.19"
   }
 }

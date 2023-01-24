@@ -3,17 +3,15 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import "regenerator-runtime/runtime"
 
-import {
-  ScProvider,
-  WellKnownChain,
-} from "@polkadot/rpc-provider/substrate-connect"
+import { ScProvider } from "@polkadot/rpc-provider/substrate-connect"
+import * as Sc from '@substrate/connect';
 import { ApiPromise } from "@polkadot/api"
 
 window.onload = () => {
   void (async () => {
     try {
       const westend = async () => {
-        const westendProvider = new ScProvider(WellKnownChain.westend2);
+        const westendProvider = new ScProvider(Sc, Sc.WellKnownChain.westend2);
         await westendProvider.connect()
         const westend = await ApiPromise.create({ provider: westendProvider });
         const westendUI = document.getElementById("westend")
@@ -27,7 +25,7 @@ window.onload = () => {
       }
 
       const kusama = async () => {
-        const kusamaProvider = new ScProvider(WellKnownChain.ksmcc3);
+        const kusamaProvider = new ScProvider(Sc, Sc.WellKnownChain.ksmcc3);
         await kusamaProvider.connect()
         const kusama = await ApiPromise.create({ provider: kusamaProvider });
         const kusamaUI = document.getElementById("kusama")
@@ -41,7 +39,7 @@ window.onload = () => {
       }
 
       const polkadot = async () => {
-        const polkadotProvider = new ScProvider(WellKnownChain.polkadot);
+        const polkadotProvider = new ScProvider(Sc, Sc.WellKnownChain.polkadot);
         await polkadotProvider.connect()
         const polkadot = await ApiPromise.create({ provider: polkadotProvider });
         const polkadotUI = document.getElementById("polkadot")
@@ -55,7 +53,7 @@ window.onload = () => {
       }
 
       const rococo = async () => {
-        const rococoProvider = new ScProvider(WellKnownChain.rococo_v2_2);
+        const rococoProvider = new ScProvider(Sc, Sc.WellKnownChain.rococo_v2_2);
         await rococoProvider.connect()
         const rococo = await ApiPromise.create({ provider: rococoProvider });
         const rococoUI = document.getElementById("rococo")
